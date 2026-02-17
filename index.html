@@ -1,73 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Glass Pixel Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Pixel Generator</title>
 </head>
-
 <body>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-title">Pixel Table Generator</div>
-            <div class="nav-links">
-                <a href="https://github.com/TheGvR3/Pixel_Table_Generator" class="nav-btn" target="_blank">
-                    <i class="fab fa-github"></i>
-                    Repository
-                </a>
-                <a href="https://thegvr3.github.io/IvanoSaracinoDev/" class="nav-btn" target="_blank">
-                    <i class="fas fa-user"></i>
-                    Portfolio
-                </a>
-            </div>
-        </div>
-    </nav>
+    <div class="background-blobs"></div>
 
-    <div class="wrapper">
-        <div class="options">
-            <div class="opt-wrapper">
-                <div class="slider">
-                    <label for="width-range">Grid Width</label>
-                    <input type="range" id="width-range" min="1" max="35">
-                    <span id="width-value">00</span>
-                </div>
-                <div class="slider">
-                    <label for="height-range">Grid Height</label>
-                    <input type="range" id="height-range" min="1" max="35">
-                    <span id="height-value">00</span>
-                </div>
+    <div class="app-wrapper">
+        
+        <aside class="glass-panel tools-panel">
+            <div class="logo-area">
+                <h2>Pixel<span>Art</span></h2>
             </div>
 
-            <div class="opt-wrapper">
-                <!-- Gruppo bottoni azione -->
-                <div class="button-group">
-                    <button id="submit-grid" class="action-btn">Create Grid</button>
-                    <button id="clear-grid">Clear Grid</button>
-                </div>
-
-                <!-- Gruppo strumenti di disegno -->
-                <div class="button-group">
-                    <div class="color-picker-wrapper">
-                        <input type="color" id="color-input">
+            <div class="control-group">
+                <label>Grid Size: <span id="size-value">20x20</span></label>
+                <div class="sliders">
+                    <div class="range-wrap">
+                        <span>W</span>
+                        <input type="range" id="width-range" min="1" max="50" value="20">
                     </div>
-                    <button id="paint-btn" class="tool-btn">Paint</button>
-                    <button id="erase-btn" class="tool-btn">Erase</button>
+                    <div class="range-wrap">
+                        <span>H</span>
+                        <input type="range" id="height-range" min="1" max="50" value="20">
+                    </div>
+                </div>
+                <button id="submit-grid" class="btn primary-btn">Update Grid</button>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="control-group">
+                <label>Tools</label>
+                <div class="tools-grid">
+                    <button class="tool-btn active" id="paint-btn" title="Brush">
+                        <i class="fas fa-paintbrush"></i>
+                    </button>
+                    <button class="tool-btn" id="erase-btn" title="Eraser">
+                        <i class="fas fa-eraser"></i>
+                    </button>
+                    <button class="tool-btn" id="fill-btn" title="Bucket Fill">
+                        <i class="fas fa-fill-drip"></i>
+                    </button>
+                    <button class="tool-btn" id="grid-toggle-btn" title="Toggle Grid">
+                        <i class="fas fa-border-all"></i>
+                    </button>
+                </div>
+                
+                <div class="color-picker-container">
+                    <input type="color" id="color-input" value="#ff0055">
+                    <label for="color-input">Pick Color</label>
                 </div>
             </div>
 
-        </div>
-        <div class="container"></div>
+            <div class="divider"></div>
+
+            <div class="control-group bottom-actions">
+                <button id="clear-grid" class="btn danger-btn">Clear</button>
+                <button id="download-btn" class="btn success-btn">
+                    <i class="fas fa-download"></i> Save PNG
+                </button>
+            </div>
+        </aside>
+
+        <main class="canvas-area">
+            <div class="glass-panel canvas-container">
+                <div class="container"></div>
+            </div>
+        </main>
+
     </div>
-
-
-
 
     <script src="index.js"></script>
 </body>
-
 </html>
